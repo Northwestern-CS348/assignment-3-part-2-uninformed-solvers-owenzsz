@@ -69,7 +69,6 @@ class SolverDFS(UninformedSolver):
             return True
 
         #populate the children nodes of the current node
-            # returns nothing, but populate the children of the current node; if no child, then do nothing
         movables = self.gm.getMovables()
         if movables:
             for movable in movables:

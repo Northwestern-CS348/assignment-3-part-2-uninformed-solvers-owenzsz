@@ -104,7 +104,7 @@ class KBTest(unittest.TestCase):
             [22, ((), (), (1, 2, 3))],
         ])
 
-    '''def test03_DFS_Hanoi(self):
+    def test03_DFS_Hanoi(self):
         th = TowerOfHanoiGame()
         th.read('hanoi_3_all_disks_on_peg_one.txt')
         required = [
@@ -115,7 +115,7 @@ class KBTest(unittest.TestCase):
         self.assertFalse(th.isWon())
 
         solver = SolverDFS(th, ((),(),(1,2,3)))
-        self.runSolve(solver)'''
+        self.runSolve(solver)
 
     def test04_BFS_Hanoi(self):
         th = TowerOfHanoiGame()
@@ -167,7 +167,7 @@ class KBTest(unittest.TestCase):
         self.assertEqual(p8.getGameState(), ((5,4,-1),(6,1,8),(7,3,2)))
 
 
-    '''def test07_DFS_8Puzzle(self):
+    def test07_DFS_8Puzzle(self):
         p8 = Puzzle8Game()
         p8.read('puzzle8_top_right_empty.txt')
         required = [
@@ -203,7 +203,7 @@ class KBTest(unittest.TestCase):
             [5, ((5, 4, 8), (6, -1, 1), (7, 3, 2))],
             [13, ((5, 4, 8), (-1, 6, 1), (7, 3, 2))],
             [21, ((6, 5, 4), (1, -1, 8), (7, 3, 2))],
-        ])'''
+        ])
 
 
 if __name__ == '__main__':
