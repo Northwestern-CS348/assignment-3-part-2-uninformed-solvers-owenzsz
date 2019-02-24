@@ -68,6 +68,9 @@ class GameState(object):
         state (object): a hashable object that denotes a specific game state, such as a Tuple of Tuples
         depth (int): the depth of the current GameState -- the number of moves that had been made to reach the
                         current game state
+
+        solution:
+
     """
 
     FIRST_CHILD_INDEX = 0

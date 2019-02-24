@@ -17,3 +17,32 @@ fact: (pred obj1 obj2)
 rule: ((pred obj1 obj2) (pred obj2 obj3)) -> (pred obj1 obj3)
 
 """
+fact: (empty_space empty)
+
+fact: (Xpos tile1 pos2)
+fact: (Xpos tile2 pos3)
+fact: (Xpos tile3 pos2)
+fact: (Xpos tile4 pos2)
+fact: (Xpos tile5 pos1)
+fact: (Xpos tile6 pos1)
+fact: (Xpos tile7 pos1)
+fact: (Xpos tile8 pos3)
+fact: (Xpos empty pos3)
+
+fact: (Ypos tile1 pos2)
+fact: (Ypos tile2 pos3)
+fact: (Ypos tile3 pos3)
+fact: (Ypos tile4 pos1)
+fact: (Ypos tile5 pos1)
+fact: (Ypos tile6 pos2)
+fact: (Ypos tile7 pos3)
+fact: (Ypos tile8 pos2)
+fact: (Ypos empty pos1)
+
+rule: ((Xpos ?piece ?initialX) (Ypos ?piece ?initialY) (Xpos ?target ?initialX) (Ypos ?target ?targety) (Ypos ?piece pos2) (empty_space ?target)) -> (movable ?piece ?initialX ?initialY ?initialX ?targety)
+
+rule: ((Xpos ?piece ?initialX) (Ypos ?piece ?initialY) (Xpos ?target ?initialX) (Ypos ?target ?targety) (Ypos ?target pos2) (empty_space ?target)) -> (movable ?piece ?initialX ?initialY ?initialX ?targety)
+
+rule: ((Xpos ?piece ?initialX) (Ypos ?piece ?initialY) (Ypos ?target ?initialY) (Xpos ?target ?targetx)  (Xpos ?piece pos2) (empty_space ?target)) -> (movable ?piece ?initialX ?initialY ?targetx ?initialY)
+
+rule: ((Xpos ?piece ?initialX) (Ypos ?piece ?initialY) (Ypos ?target ?initialY) (Xpos ?target ?targetx)  (Xpos ?target pos2) (empty_space ?target)) -> (movable ?piece ?initialX ?initialY ?targetx ?initialY)
