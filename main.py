@@ -104,7 +104,7 @@ class KBTest(unittest.TestCase):
             [22, ((), (), (1, 2, 3))],
         ])
 
-    '''def test03_DFS_Hanoi(self):
+    def test03_DFS_Hanoi(self):
         th = TowerOfHanoiGame()
         th.read('hanoi_3_all_disks_on_peg_one.txt')
         required = [
@@ -203,7 +203,7 @@ class KBTest(unittest.TestCase):
             [5, ((5, 4, 8), (6, -1, 1), (7, 3, 2))],
             [13, ((5, 4, 8), (-1, 6, 1), (7, 3, 2))],
             [21, ((6, 5, 4), (1, -1, 8), (7, 3, 2))],
-        ])'''
+        ])
 
 
 if __name__ == '__main__':
