@@ -97,6 +97,10 @@ class TowerOfHanoiGame(GameMaster):
         origin = movable_terms[1]
         target = movable_terms[2]
 
+        old_above_bindings = self.kb.kb_ask(parse_input('fact: (above ' + str(disk) + ' ?disk2)'))
+        if old_above_bindings:
+            self.kb.kb_retract(parse_input(str('fact: above ' + str(disk) + ' ' + str(old_above_bindings[0]['?disk2']))))
+            self.kb.kb_assert(parse_input(str('fact: ontop ' + str(old_above_bindings[0]['?disk2'])+ ' ' + str(origin) + ')')))
 
         new_on_fact_to_add = parse_input(str('fact: (on ' + str(disk) + ' ' + str(target) + ')'))
         new_top_fact_to_add = parse_input(str('fact: (ontop ' + str(disk) + ' ' + str(target) + ')'))
@@ -108,10 +112,14 @@ class TowerOfHanoiGame(GameMaster):
         self.kb.kb_assert(new_on_fact_to_add)
         self.kb.kb_assert(new_top_fact_to_add)
 
+
         old_empty_bindings = self.kb.kb_ask(parse_input('fact: (on ?disk ' + str(target) + ')'))
         if old_empty_bindings:
             old_empty_fact_to_retract = parse_input(str('fact: (empty ' + str(target) + ')'))
             self.kb.kb_retract(old_empty_fact_to_retract)
+        else:
+            new_above_bindings = self.kb.kb_ask(parse_input(str('fact: (ontop ?disk '+ str(target) + ')')))
+            self.kb.kb_assert(parse_input(str('fact: (above ')+ str(disk) + ' ' + str(new_above_bindings[0]['?disk'])))
 
         origin_bindings =self.kb.kb_ask(parse_input('fact: (on ?disk ' + str(origin) + ')'))
         if not origin_bindings:

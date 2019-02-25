@@ -78,7 +78,6 @@ class SolverDFS(UninformedSolver):
                     self.currentState.children.append(child_state)
                     child_state.parent = self.currentState
                     self.gm.reverseMove(movable)
-
         #visit each child
         if len(self.currentState.children) !=0:
             #if I have not visited all the child nodes
